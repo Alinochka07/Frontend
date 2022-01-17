@@ -155,14 +155,14 @@
 // }
 // test(7, 1, 9);
 
-const computer = {
-    name_: "MacBook",
-    year: 2019,
-    memory: {
-        hdd: "500gb",
-        ram: "4gb"
-    }
-};
+// const computer = {
+//     name_: "MacBook",
+//     year: 2019,
+//     memory: {
+//         hdd: "500gb",
+//         ram: "4gb"
+//     }
+// };
 // console.log(computer);
 
 // delete computer.year;
@@ -194,21 +194,21 @@ const computer = {
 // Сделать функцию которая вычисляет длину окружности, радиус задает пользователь
 
 
-function circleLength(p, r) {
-    var result = 2 * p * r;
-    alert(result);
-}
-circleLength(3.14, prompt("Введите радиус круга"));
+// function circleLength(p, r) {
+//     var result = 2 * p * r;
+//     alert(result);
+// }
+// circleLength(3.14, prompt("Введите радиус круга"));
 
 
-// Напишите функцию min(a,b), которая возвращает меньшее из чисел a и b
-function min(a,b) {
-    if(a < b) {
-        alert(a);
-    } else if(a > b) {
-        alert(b);
-    } else {
-        alert("Два числа равны друг другу");
-    }
-}
-min(0, 4);
+// // Напишите функцию min(a,b), которая возвращает меньшее из чисел a и b
+// function min(a,b) {
+//     if(a < b) {
+//         alert(a);
+//     } else if(a > b) {
+//         alert(b);
+//     } else {
+//         alert("Два числа равны друг другу");
+//     }
+// }
+// min(0, 4);
