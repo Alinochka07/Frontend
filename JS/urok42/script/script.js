@@ -529,9 +529,132 @@
 //       // У этого хомяка тоже есть еда. Почему? Исправьте
 //       console.log( lazy.stomach ); // apple -- // ничего
 
+// for (let i = 0; i < 10; i++) {
+
+//         // если true, пропустить оставшуюся часть тела цикла
+//         if (i % 2 == 0) continue;
+      
+//         alert(i); // 1, затем 3, 5, 7, 9
+//       }
+
+// outer: for (let i = 0; i < 3; i++) {
+
+//         for (let j = 0; j < 3; j++) {
+      
+//           let input = prompt(`Значение на координатах (${i},${j})`, '');
+      
+//           // если пустая строка или Отмена, то выйти из обоих циклов
+//           if (!input) break outer; // (*)
+      
+//           // сделать что-нибудь со значениями...
+//         }
+//       }
+      
+//       alert('Готово!');
+
+
+// outer: for(let i = 0; i< 5; i++) {
+//         let input = prompt(`Enter any number ${i}`);
+//         alert(input*i);
+//         if (!input) break outer;
+
+// }
+// alert("Hello!");
+
+
+
+
+// let i = 3;
+
+// while (i) {
+//   alert( i-- );
+// }    // ответ будет 1. так как цикл при сравнении с 0 дальше не может проверяться, поэтому просто выведит значение 1.
+
+
+
+// Префиксный и постфиксный варианты в цикле "while"
+
+// let i = 0;
+// while (++i < 5) alert( i );    // Префиксный вариант не может сочесть 5 < 5 правильным, поэтому последний его результат будет 4.
+
+// let i = 0;
+// while (i++ < 5) alert(i); // В постфиксном варианте он будет счесть правильным при проверке 5 < 5, поэтому выведет последним 5.
+
+
+
+// Префиксный и постфиксный варианты в цикле "for"
+// for (let i = 0; i < 5; i++) alert( i ); // последним выведет 4
+// for (let i = 0; i < 5; ++i) alert( i ); // последним выведет 4. В цикле for что префиксный, что постфиксный не будет иметь значение.
+
+
+// Task 1
+
+// for(let i = 2; i <= 10; i++) {
+//         if(i % 2 == 0) {
+//                 alert(i);
+//         }
+// }
+
+// Task 2
+
+// for (let i = 0; i < 3; i++) {
+//         alert( `number ${i}!` );
+//       }
+
+
+// let i = 0;
+// while (i < 3) {
+//         alert(`number ${i++}!`);
+// }
+
+// Task 3
+// option 1
+// let input = 0;
+
+// while (input < 100) {
+//         input = Number(prompt("Enter a number more than 100"));
+//         if (input > 100 || !input) {
+//                 break;
+//         }
+// }
+// option 2
+// let num;
+
+// do {
+//   num = prompt("Введите число больше 100?", 0);
+// } while (num <= 100 && num);
+
+
+
+
+// Для n = 10 результат должен быть 2,3,5,7. N должен делиться только на 1.
+// let n = 10;
+
+// nextt:
+// for (let i = 2; i <= n; i++) {
+//         for (let j = 2; j < i; j++) {
+//                 if (i % j == 0) continue nextt;
+//         }
+//         alert(i);
+// } // 2, 3, 5, 7
+
+
+// for (let i = 2; i <= 10; i++) {
+//         if(i % 2 == 0) continue;
+//         alert(i);
+//         }
+//         // 3, 5, 7, 9
+
+
+
+
+
+
+
+// УРОК 42
 
 // Option 1 - to display alert via click using a function with "onclick"
-let click = document.getElementById("btn1");
+// let click = document.getElementById("btn1");
 // click.onclick = function () {
 //         alert("Hello!");
 // };
@@ -542,46 +665,48 @@ let click = document.getElementById("btn1");
       
 // Option 2 - via "addEventListener". The result will be same.
 
-click.addEventListener("click", () => {
-        alert("Hello from Click!");
-});
-
 // click.addEventListener("click", () => {
-//         alert("Hello 4!");               // here it displays both alerts, and it works by clicking only once.
-// });    
-
-let mouseover = document.getElementById("btn2");
-
-mouseover.addEventListener("mouseover", () => {
-        alert("You just mouseovered me!");
-});
-
-let mouseout = document.getElementById("btn3");
-mouseout.addEventListener("mouseout", () => {
-        alert("Yess! A mouseout worked!");
-});
-
-// option 1 to delete a button
-
-let delete_button = document.getElementById("btn4");
-
-// delete_button.addEventListener("click", (event) => {
-//         event.target.remove();
+//         alert("Hello from Click!");
 // });
 
-// option 2 to delete a button
+// // click.addEventListener("click", () => {
+// //         alert("Hello 4!");               // here it displays both alerts, and it works by clicking only once.
+// // });    
 
-let delete_element = (e) => {e.target.remove()};
+// let mouseover = document.getElementById("btn2");
 
-delete_button.addEventListener("click", delete_element);
+// mouseover.addEventListener("mouseover", () => {
+//         alert("You just mouseovered me!");
+// });
+
+// let mouseout = document.getElementById("btn3");
+// mouseout.addEventListener("mouseout", () => {
+//         alert("Yess! A mouseout worked!");
+// });
+
+// // option 1 to delete a button
+
+// let delete_button = document.getElementById("btn4");
+
+// // delete_button.addEventListener("click", (event) => {
+// //         event.target.remove();
+// // });
+
+// // option 2 to delete a button
+
+// let delete_element = (e) => {e.target.remove()};
+
+// delete_button.addEventListener("click", delete_element);
 
 
 
-// Get the text of button
+// // Get the text of button
 
-let get_text = document.getElementById("btn5");
-let got_text = (e) => {
-        alert(`You just clicked '${e.target.innerText}' button`);
-};
+// let get_text = document.getElementById("btn5");
+// let got_text = (e) => {
+//         alert(`You just clicked '${e.target.innerText}' button`);
+// };
 
-get_text.addEventListener("click", got_text);
+// get_text.addEventListener("click", got_text);
+
+
