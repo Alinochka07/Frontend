@@ -1,7 +1,6 @@
 (function() {
     'use strict';
 
-
     const inputSom = document.querySelector("#som");
     const inputUSD = document.querySelector("#usd");
 
@@ -10,15 +9,15 @@
         const request = new XMLHttpRequest();
 
         // request.open(method(GET/POST), url, async, login, password)
-        request.open("GET", "../Json/currency.json");
+        request.open("GET", "../script/currency.json");
 
         request.setRequestHeader("Content-type", "application/json; charset=UTF-8");
         request.send();
 
-        request.addEventListener( "load", ()=> {
+        request.addEventListener("load", ()=> {
             
             if(request.status === 200) {
-                // console.log(request.response);
+                console.log(request.response);
                 console.log(JSON.parse(request.response));
 
                 const my_currency = JSON.parse(request.response);
@@ -36,16 +35,19 @@
         // response
         // readyState
 
+    });
+
 
         const   search = document.querySelector("[name='search']"),
-                btnSearch = document.querySelector(".form_search button");
+                btnSearch = document.querySelector(".form_search button"),
+                search_drop_down = document.querySelector(".search-drop-down");
 
         btnSearch.addEventListener("click", (e) => {
             e.preventDefault();
 
             const request2 = new XMLHttpRequest();
 
-            request2.open("GET", "../script/search.php?query="+search.value);
+            request2.open("GET", "../php/search.php?query="+search.value); 
             // request2.setRequestHeader("Content-type", "application/json; charset=UTF-8");
             request2.send();
 
@@ -57,11 +59,12 @@
                     let create_ul = document.createElement("ul");
 
                     for (let i = 0; i < data.length; i++) {
-                        console.log(i);
-                        // create_ul.innerHTML += `<li>
-                        //                         <a href="${data[i].href}">${data.[i].text}</a>
-                        //                         </li>`;
-                    }
+                        // console.log(i);
+                        create_ul.innerHTML += `<li class="search_li">\
+                                                <a href="${data[i].href}">${data[i].text}</a>\
+                                                </li>`;
+                    } 
+                    search_drop_down.innerHTML = create_ul.outerHTML;
                 } else {
                     console.log("Error");
                 }
@@ -71,9 +74,6 @@
 
         });
 
-
-
-    });
 
 
 

@@ -944,6 +944,10 @@ p.italic.text_decoration:hover {
 #bestseller {
     margin-bottom: 30px;
 }
+
+
+
+
 /* Конец стилей для страницы  */
 
 
@@ -1350,4 +1354,30 @@ p.italic.text_decoration:hover {
 #color_text {
     font-weight: bolder;
     font-style: italic;
+}
+
+.search_method {
+    position: relative;
+}
+
+.search_method .search-drop-down ul {
+    width: 274px;
+    position: absolute;
+    text-align: left;
+    
+    background: white;
+    border: 1px solid grey;
+    text-decoration: none;
+}
+
+li .search_li a {
+    text-decoration: none;
+    color: #4c4b6c;
+}
+
+li.search_li {
+    list-style: none;
+    display: block;
+    padding-left: 0;
+    margin-left: 0;
 }

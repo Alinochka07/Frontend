@@ -15,7 +15,6 @@
     </head>
     <body>
         
-        <!-- <?php include("include/search.php");?> -->
         
         <header> <!--верхнее меню-->
             <div class="verhnee_menu">
@@ -179,15 +178,20 @@
                             <div class="right">
                                 <ul class="ul_li">
                                     <li>
-                                        <div class="search_form">
-                                            <form action="?search=#" method="GET" class="form_search">
-                                                <input type="text" class="search"  placeholder="Search..." name="search">
-                                                <button type="submit" class="search_button">
-                                                    <i class="fas fa-search"></i>
-                                                </button>
-                                            </form>
-                                            
+                                        <div class="search_method">
+                                            <div class="search_form">
+                                                <form action="?search=#" method="GET" class="form_search">
+                                                    <input type="text" class="search"  placeholder="Search..." name="search">
+                                                    <button type="submit" class="search_button">
+                                                        <i class="fas fa-search"></i>
+                                                    </button>
+                                                </form>
+                                            </div> <!--search_form-->
+                                            <div class="search-drop-down">
+                                                
+                                            </div>
                                         </div>
+                                        
                                     </li>
                                    
                                     <li>
@@ -1026,9 +1030,9 @@
        </footer>
     </body>
 
-    <script src="../script/add_funct.js"></script>
+    
     <script src="../script/add_to_card.js"></script>
     <script src="../script/cardproduct.js"></script>
-    
+    <script src="../script/add_funct.js"></script>
     
 </html>
