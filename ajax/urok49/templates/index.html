@@ -31,7 +31,35 @@
                     <div class="right"> <!--правая сторона-->
                         <ul class="ul_li b-r">
                             <li><i class="fas fa-globe"></i> Language: EN</li>
-                            <li><i class="fas fa-dollar-sign"></i> Currency: USD</li>
+                            <li class="currency_change">
+                                <i class="fas fa-dollar-sign"></i>Currency: USD
+                                    <div class="choose_currency">
+                                        <ul>
+                                            <li id="usd_to_kg"><img src="../img/flags/us.svg"> &nbsp; <img src="../img/flags/kg.svg"></li>
+                                                <div id="usd_converter">
+                                                    <p id="UsdConverter"></p>
+                                                    <p id="KgsResult"></p>
+                                                </div>
+                                            <li id="kg_to_usd"><img src="../img/flags/kg.svg"> &nbsp; <img src="../img/flags/us.svg"></li>
+                                                <div class="kgs_converter">
+                                                    <p id="KgsUsdConverter"></p>
+                                                    <p id="UsdResult"></p>
+                                                </div>
+                                            <li id="ru_to_kg"><img src="../img/flags/ru.svg"> &nbsp; <img src="../img/flags/kg.svg"></li>
+                                                <div class="ru_converter">
+                                                    <p id="RubConverter"></p>
+                                                    <p id="KgsRuResult"></p>
+                                                </div>
+                                            <li id="kg_to_ru"><img src="../img/flags/kg.svg"> &nbsp; <img src="../img/flags/ru.svg"></li>
+                                                <div class="kg_ru_converter">
+                                                    <p id="KgsRuConverter"></p>
+                                                    <p id="RuResult"></p>
+                                                </div>
+                                        </ul>
+                                    </div>
+                                
+                            </li>
+                            
                             <li><i class="fas fa-user"></i> <span><strong>Sign in</strong></span> / Register </li>
                         </ul>
                     </div>
@@ -190,8 +218,7 @@
                                             <div class="search-drop-down">
                                                 
                                             </div>
-                                        </div>
-                                        
+                                        </div> 
                                     </li>
                                    
                                     <li>

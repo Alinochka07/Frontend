@@ -1,6 +1,6 @@
 <?php
 
-if ($_GET['query'] == "jacket") {
+if ($_GET['query'] == "jack") {
     $result = array(
         array(
             "text" => "Jacket",
@@ -19,7 +19,7 @@ if ($_GET['query'] == "jacket") {
             "href" => "https://www.uniqlo.com/eu/en/asearch?q=Jackets%20And%20Coats"
         )
     );
-} elseif ($_GET['query'] == "sweater") {
+} elseif ($_GET['query'] == "sweat") {
     $result = array(
         array(
             "text" => "Sweater",

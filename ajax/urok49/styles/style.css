@@ -91,6 +91,58 @@ p.italic {
 
 /* Position */
 
+
+.currency_change {
+    position: relative;
+    display: block;
+    flex-wrap: wrap;
+    cursor: pointer;
+}
+
+.currency_change:hover >.choose_currency {
+    display: block;
+}
+
+.currency_change:checked >.choose_currency {
+    display: block;
+}
+
+.choose_currency {
+    display: none;
+    width: 200px;
+    border-radius: 20px;
+    position:absolute;
+    background: white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 9;
+    padding-right: 15px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.choose_currency ul li {
+    text-align: left;
+    font-size: 12px;
+    color:#4c4b6c;
+    margin: 0;
+    padding-left: 0;
+    padding-top: 10px;
+}
+
+.choose_currency li {
+    border-right: none;
+}
+.choose_currency img {
+    width: 18px;
+}
+input.USD, input.KGS, input.RUB {
+    border: 1px solid rgb(197, 196, 196);
+    width: 100px;
+}
+
+
+
 .msg {
     position: absolute;
     top: -9px;
@@ -240,14 +292,14 @@ p.italic {
     font-weight:600;
     margin-top:10px;
     padding-top:7px;
+    height:38px;
+    width:115px;
 }
 
 .main_menu > p:hover {
     background:#7bd0f5;
     color:white;
     border-radius:59px;
-    height:38px;
-    width:115px;
     transition:.8s;
 }
 
@@ -255,7 +307,7 @@ p.italic {
     display:none;
     position:absolute;
     background: white;
-    margin-top: 30px;
+    
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 9;
 }
@@ -293,6 +345,7 @@ p.italic {
     width: 170px;
     height: 200px;
     padding-top: 15px;
+    border-radius: 20px;
 }
 
 .products {
@@ -305,6 +358,7 @@ p.italic {
     margin-bottom: 0;
     padding-bottom: 0;
     color: black;
+    border-radius: 20px;
 }
 .first_column ul {
     float: none;
@@ -318,6 +372,7 @@ p.italic {
 .sale {
     width: 949px;
     padding: 0;
+    border-radius: 20px;
 }
 .sale li {
     float: left;
@@ -334,6 +389,7 @@ p.italic {
     width: 170px;
     height: 200px;
     padding-top: 15px;
+    border-radius: 20px;
 }
 
 
@@ -342,6 +398,7 @@ p.italic {
 }
 .chevr:hover .up {
     display: inline-block;
+   
 }
 
 .left > p {
@@ -1364,15 +1421,15 @@ p.italic.text_decoration:hover {
     width: 274px;
     position: absolute;
     text-align: left;
-    
     background: white;
-    border: 1px solid grey;
-    text-decoration: none;
+    border: 1px solid #e2dddd;
+    border-radius: 20px;
 }
 
 li .search_li a {
     text-decoration: none;
-    color: #4c4b6c;
+    color: black;
+    font-size: 16px;
 }
 
 li.search_li {
