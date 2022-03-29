@@ -1,72 +1,75 @@
 (function() {
 
-        // УРОК 50
-        // console.log("Data request...");
+        УРОК 50
+        console.log("Data request...");
 
 
-        // const request = new Promise(function(resolve, reject) {
+        const request = new Promise(function(resolve, reject) {
 
-        //         setTimeout(() => {
-        //                 console.log("Data processing...");
+                setTimeout(() => {
+                        console.log("Data processing...");
 
-        //                 const data = {
-        //                         title: "Product",
-        //                         price: 5000
-        //                 };
+                        const data = {
+                                title: "Product",
+                                price: 5000
+                        };
 
-        //                 resolve(data);
-        //         }, 1500);
-        // });
+                        resolve(data);
+                }, 1500);
+        });
 
-        // request.then(data => {
-        //         return new Promise(function(resolve, reject) { // resolve возвращает data, reject минует данные и возвращает catch.
-        //                 setTimeout(() => {
-        //                         data.status = "inactive";
-        //                         reject(data);
-        //                 });
-        //         });
+        request.then(data => {
+                return new Promise(function(resolve, reject) { // resolve возвращает data, reject минует данные и возвращает catch.
+                        setTimeout(() => {
+                                data.status = "inactive";
+                                reject(data);
+                        });
+                });
 
-        // }, 2000).then(data => {
-        //         data.modify = "modify";
-        //         return data;
+        }, 2000).then(data => {
+                data.modify = "modify";
+                return data;
 
-        // }).then(data => {
-        //         console.log(data);
+        }).then(data => {
+                console.log(data);
 
-        // }).catch(() => {
-        //         console.log("Something went wrong during getting information...");
+        }).catch(() => {
+                console.log("Something went wrong during getting information...");
 
-        // }).finally(() => {
-        //         console.log("Data clerance");
-        // });
+        }).finally(() => {
+                console.log("Data clerance");
+        });
 
-        // const test = time => {
-        //         return new Promise(resolve => {
-        //                 setTimeout(() => resolve(), time);
-        //         });
-        // };
+        const test = time => {
+                return new Promise(resolve => {
+                        setTimeout(() => resolve(), time);
+                });
+        };
 
-        // test(1000).then(() => console.log("Time in 1000ms"));
-        // test(2000).then(() => console.log("Time in 2000ms"));
+        test(1000).then(() => console.log("Time in 1000ms"));
+        test(2000).then(() => console.log("Time in 2000ms"));
 
-        // Promise.all([test(1000), test(2000)]).then(() => {
-        //         console.log("All done");
-        // });
+        Promise.all([test(1000), test(2000)]).then(() => {
+                console.log("All done");
+        });
 
-        // Promise.race([test(1000), test(2000)]).then(() => {
-        //         console.log("All done");
-        // });
+        Promise.race([test(1000), test(2000)]).then(() => {
+                console.log("All done");
+        });
 
         
-        // let myFirstPromise = new Promise((resolve, reject) => {
-        //         setTimeout(function(){
-        //           resolve("Success!");
-        //         }, 250);
-        //       });
+        let myFirstPromise = new Promise((resolve, reject) => {
+                setTimeout(function(){
+                  resolve("Success!");
+                }, 250);
+              });
               
-        //       myFirstPromise.then((successMessage) => {
-        //         console.log("Ура! " + successMessage);
-        //       });
+              myFirstPromise.then((successMessage) => {
+                console.log("Ура! " + successMessage);
+              });
+
+
+              
 
         // TASK 50
         
