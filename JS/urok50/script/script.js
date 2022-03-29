@@ -1,6 +1,6 @@
 (function() {
 
-        УРОК 50
+        // УРОК 50
         console.log("Data request...");
 
 
