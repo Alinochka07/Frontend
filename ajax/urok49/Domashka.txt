@@ -1,5 +1,0 @@
-Домашнее задание в файлах:
-add_funct.js
-index.html
-
-Konvertaciya po DZ vo vkladke Currency, na verhnem pravom menu.
