@@ -1,0 +1,214 @@
+(function() {
+    'use strict';
+
+    // Dropdown list of search.        
+
+    const   search = document.querySelector("[name='search']"),
+    // btnSearch = document.querySelector(".form_search button"),
+    search_drop_down = document.querySelector(".search-drop-down");
+
+    search.addEventListener("input", (e) => {
+        e.preventDefault();
+
+        fetch('../php/search.php', {
+                method: "POST",
+                body: JSON.stringify({query: search.value}),
+                headers: {
+                        "Content-type": "application/json"
+                }
+        })
+        .then(response => response.json())
+        .then(json => {
+
+                let create_ul = document.createElement("ul");
+                for (let i = 0; i < json.length; i++) {
+                    create_ul.innerHTML += `<li class="search_li">\
+                                            <a href="${json[i].href}">${json[i].text}</a>\
+                                            </li>`;
+                } 
+                search_drop_down.innerHTML = create_ul.outerHTML;
+        })
+        .catch(console.log("Error"));
+
+        // Пример отправки POST запроса:
+
+        // async function postData(url = '', data = {}) {
+        // // Default options are marked with *
+        //     const response = await fetch(url, {
+        //         method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        //         mode: 'cors', // no-cors, *cors, same-origin
+        //         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        //         credentials: 'same-origin', // include, *same-origin, omit
+        //         headers: {
+        //             'Content-Type': 'application/json'
+        //             // 'Content-Type': 'application/x-www-form-urlencoded',
+        //         },
+        //         redirect: 'follow', // manual, *follow, error
+        //         referrerPolicy: 'no-referrer', // no-referrer, *client
+        //         body: JSON.stringify(data) // body data type must match "Content-Type" header
+        //     });
+        //     return await response.json(); // parses JSON response into native JavaScript objects
+        // }
+
+        // postData('https://example.com/answer', { answer: 42 })
+        // .then((data) => {
+        //     console.log(data); // JSON data parsed by `response.json()` call
+        // });
+
+    });
+
+
+    
+// Domashnee Zadanie # 51
+
+    const   from_usd_to_kg = document.querySelector("#usd_to_kg"),
+            from_kgs_to_usd = document.querySelector("#kg_to_usd"),
+            from_ru_to_kgs = document.querySelector("#ru_to_kg"),
+            from_kgs_to_ru = document.querySelector("#kg_to_ru"),
+            from_kgs_to_euro = document.querySelector("#kg_to_eu");
+
+// USD to KGS
+    from_usd_to_kg.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        let create_input_usd = document.createElement("input");
+        create_input_usd.setAttribute('type', 'text');
+        create_input_usd.setAttribute('class', 'USD');
+        create_input_usd.setAttribute('placeholder', 'USD');
+
+        var usd_parent = document.getElementById("UsdConverter");
+        usd_parent.appendChild(create_input_usd);
+
+        const KgsResult = document.querySelector("#KgsResult");
+
+        create_input_usd.addEventListener("input", () => {
+            fetch('../script/currency.json') 
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                const result = data.currency.usdToKgs * create_input_usd.value;
+                KgsResult.innerHTML = `KGS: ${result.toFixed(2)}`;
+            });
+            
+        });
+
+    }); 
+
+// KGS to USD
+
+    from_kgs_to_usd.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        let create_input_kgs = document.createElement("input");
+        create_input_kgs.setAttribute('type', 'text');
+        create_input_kgs.setAttribute('class', 'KGS');
+        create_input_kgs.setAttribute('placeholder', 'KGS');
+
+        var kgs_parent = document.getElementById("KgsUsdConverter");
+        kgs_parent.appendChild(create_input_kgs);
+
+        const UsdResult = document.querySelector("#UsdResult");
+
+        create_input_kgs.addEventListener("input", () => {
+            fetch('../script/currency.json') 
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                const result = create_input_kgs.value * data.currency.kgsToUsd;
+                UsdResult.innerHTML = `USD: ${result.toFixed(2)}`;
+            });
+            
+        });
+    }); 
+
+// RUB to KGS
+
+    from_ru_to_kgs.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        let create_input_rub = document.createElement("input");
+        create_input_rub.setAttribute('type', 'text');
+        create_input_rub.setAttribute('class', 'RUB');
+        create_input_rub.setAttribute('placeholder', 'RUB');
+
+        var rub_parent = document.getElementById("RubConverter");
+        rub_parent.appendChild(create_input_rub);
+
+        const KgsRuResult = document.querySelector("#KgsRuResult");
+
+        create_input_rub.addEventListener("input", () => {
+            fetch('../script/currency.json') 
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                const result = create_input_rub.value * data.currency.ruToKgs;
+                KgsRuResult.innerHTML = `KGS: ${result.toFixed(2)}`;
+            });
+            
+        });
+    }); 
+
+
+    // KGS to USD
+
+    from_kgs_to_ru.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        let create_input_kgs_ru = document.createElement("input");
+        create_input_kgs_ru.setAttribute('type', 'text');
+        create_input_kgs_ru.setAttribute('class', 'KGS');
+        create_input_kgs_ru.setAttribute('placeholder', 'KGS');
+
+        var kgs_ru_parent = document.getElementById("KgsRuConverter");
+        kgs_ru_parent.appendChild(create_input_kgs_ru);
+
+        const RuResult = document.querySelector("#RuResult");
+
+        create_input_kgs_ru.addEventListener("input", () => {
+            fetch('../script/currency.json') 
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                const result = create_input_kgs_ru.value * data.currency.kgsToRu;
+                RuResult.innerHTML = `RUB: ${result.toFixed(2)}`;
+            });
+            
+        });
+    }); 
+
+
+    // KGS to EURO
+
+    from_kgs_to_euro.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        let create_input_kgs_euro = document.createElement("input");
+        create_input_kgs_euro.setAttribute('type', 'text');
+        create_input_kgs_euro.setAttribute('class', 'KGS');
+        create_input_kgs_euro.setAttribute('placeholder', 'KGS');
+
+        var kgs_euro_parent = document.getElementById("KgsEuConverter");
+        kgs_euro_parent.appendChild(create_input_kgs_euro);
+
+        const EuResult = document.querySelector("#EuResult");
+
+        create_input_kgs_euro.addEventListener("input", () => {
+            fetch('../script/currency.json') 
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                const result = create_input_kgs_euro.value * data.currency.kgsToEuro;
+                EuResult.innerHTML = `EURO: ${result.toFixed(2)}`;
+            });
+            
+        });
+    }); 
+
+
+
+}());
