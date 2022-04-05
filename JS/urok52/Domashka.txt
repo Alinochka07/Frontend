@@ -1,0 +1,5 @@
+Домашнее задание в файлах:
+add_funct.js
+index.html
+
+Converter - nahoditsya na verhnem menu gde "Currency", kak Dropdown list.
