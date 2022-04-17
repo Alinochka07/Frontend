@@ -1,0 +1,49 @@
+{
+    "products": [
+        {
+            "img": "../img/product/product1/img1.jpeg",
+            "altimg": "Animal Print Sweatshirt",
+            "title": "Animal Print Sweatshirt",
+            "top_title": "New",
+            "new_price": 36,
+            "old_price": 42
+        },
+        {
+            "img": "../img/product/product1/img2.jpeg",
+            "altimg": "Green Warm Sweater",
+            "title": "Green Warm Sweater",
+            "top_title": "New",
+            "new_price": 25,
+            "old_price": 42
+        },
+        {
+            "img": "../img/product/product1/img3.jpeg",
+            "altimg": "T-shirt with Prints",
+            "title": "T-shirt with Prints",
+            "top_title": "New",
+            "new_price": 14,
+            "old_price": 42
+        },
+        {
+            "img": "../img/product/product1/img4.jpeg",
+            "altimg": "Plane Style Backpack",
+            "title": "Plane Style Backpack",
+            "top_title": "New",
+            "new_price": 30,
+            "old_price": 42
+        },
+        {
+            "img": "../img/product/product1/img5.jpeg",
+            "altimg": "Girl's clothing",
+            "title": "Girl's clothing",
+            "top_title": "New",
+            "new_price": 11.67,
+            "old_price": 16.67
+        }
+    ],
+    "requests": [
+        
+    ]
+    
+
+}

@@ -1,0 +1,75 @@
+{
+  "products": [
+    {
+      "img": "../img/product/product1/img1.jpeg",
+      "altimg": "Animal Print Sweatshirt",
+      "title": "Animal Print Sweatshirt",
+      "top_title": "New",
+      "comment": "-30%",
+      "comment_color": "green",
+      "new_price": 1050,
+      "old_price": 1500,
+      "product_text": "Cotton linen soft fabric. Easy to wash and care..."
+    },
+    {
+      "img": "../img/product/product1/img2.jpeg",
+      "altimg": "Green Warm Sweater",
+      "title": "Green Warm Sweater",
+      "top_title": "New",
+      "comment": "-30%",
+      "comment_color": "orange",
+      "new_price": 1700,
+      "old_price": 2000,
+      "product_text": "Cotton linen soft fabric. Easy to wash and care..."
+    },
+    {
+      "img": "../img/product/product1/img3.jpeg",
+      "altimg": "T-shirt with Prints",
+      "title": "T-shirt with Prints",
+      "top_title": "New",
+      "comment": "-30%",
+      "comment_color": "orange",
+      "new_price": 790,
+      "old_price": 1000,
+      "product_text": "Cotton linen soft fabric. Easy to wash and care..."
+    },
+    {
+      "img": "../img/product/product1/img4.jpeg",
+      "altimg": "Plane Style Backpack",
+      "title": "Plane Style Backpack",
+      "top_title": "New",
+      "comment": "-30%",
+      "comment_color": "green",
+      "new_price": 1850,
+      "old_price": 2500,
+      "product_text": "Cotton linen soft fabric. Easy to wash and care..."
+    },
+    {
+      "img": "../img/product/product1/img5.jpeg",
+      "altimg": "Girl's clothing",
+      "title": "Girl's clothing",
+      "top_title": "New",
+      "comment": "-30%",
+      "comment_color": "orange",
+      "new_price": 800,
+      "old_price": 1200,
+      "product_text": "Cotton linen soft fabric. Easy to wash and care..."
+    }
+  ],
+  "requests": [
+    {
+      "image": "http://localhost:8888/JS/urok57/img/product/product1/img1.jpeg",
+      "title": "Animal Print Sweatshirt",
+      "currency": "$",
+      "price": "12.35",
+      "id": 1
+    },
+    {
+      "image": "http://localhost:8888/JS/urok57/img/product/product1/img3.jpeg",
+      "title": "T-shirt with Prints",
+      "currency": "$",
+      "price": "9.29",
+      "id": 2
+    }
+  ]
+}
