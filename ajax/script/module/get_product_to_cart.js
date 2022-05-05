@@ -1,6 +1,7 @@
-(function () {
-    "use strict";
+"use strict";
 
+    
+function getProductsToCart() {
     class cardProduct {
         constructor(comment, comment_color, image, title, descr_header, descr_text, n_price, oldprice, innerBlock) {
             this.comment = comment;
@@ -104,7 +105,7 @@
         }
 
         return await result.json();
-};
+    };
 
         getProduct("http://localhost:3000/products")
         .then(data => {
@@ -125,11 +126,6 @@
 
                 
         });
+};
 
-
-
-
-
-
-
-}());
+module.exports = getProductsToCart;
