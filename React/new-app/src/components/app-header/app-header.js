@@ -24,13 +24,13 @@ const AppDiv2 = styled(AppDiv)`
 
 
 
-const AppHeader = () => {
+const AppHeader = ({allPosts, likes}) => {
     return (
         // <div className="app-header d-flex">
         <AppDiv>
             <AppDiv2 as="a" href="#">AppDiv2</AppDiv2>
             <h3>Alina Akylbekova</h3>
-            <h6>3 notes, 0 likes</h6>
+            <h6>{allPosts} note(s), {likes} like(s)</h6>
         </AppDiv>
     )
 }
