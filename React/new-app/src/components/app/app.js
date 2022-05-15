@@ -4,23 +4,27 @@ import SearchPanel from "../search-panel";
 import PostStatusFilter from "../post-status";
 import PostList from "../post-list";
 import PostAddForm from "../post-add-form";
+import ModalWindow from "../modal-window";
+import FetchData from "../../fetch-data/fetch-data";
+import Loader from "../loader";
+import ErrorMessage from "../errorMsg"
 
 
 export default class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: [
-                {label: "Article # 1", important: true, like: false, id: 1},
-                {label: "Article # 2", important: false, like: false, id: 2},
-                {label: "Article # 3", important: false, like: false, id: 3},
-                {label: "Article # 4", important: false, like: false, id: 4}
-            ],
+            data: [],
 
             searchValue: "",
-            filter: ""
+            filter: "",
+            modalVisible: false,
+            modal: [],
+            loader: true,
+            errormsg: false
         }
 
+        this.getAllData();
         // Bindings
         this.onDelete = this.onDelete.bind(this);
         this.addItem = this.addItem.bind(this);
@@ -29,7 +33,7 @@ export default class App extends Component {
         this.onUpdateSearchPanel = this.onUpdateSearchPanel.bind(this);
         this.onUpdateFilter = this.onUpdateFilter.bind(this);
 
-        this.id = 5;
+        // this.id = 5;
     }
 
     onDelete(id) {
@@ -50,7 +54,7 @@ export default class App extends Component {
 
     addItem(text) {
         const newItem = {
-            label: text,
+            first_name: text,
             important: false,
             id: this.id++
         }
@@ -101,7 +105,7 @@ export default class App extends Component {
         }
 
         return items.filter((item) => {
-            return item.label.indexOf(searchValue) > -1
+            return item.first_name.indexOf(searchValue) > -1
         })
     }
 
@@ -126,17 +130,78 @@ export default class App extends Component {
         })
     }
 
+    // FetchData
+
+    getdata = new FetchData();
+
+    modalData = (data) => {
+        this.setState({
+            modal: data.data
+        })
+    }
+
+
+    onError = () => {
+        this.setState({
+            errormsg: true,
+            loader: false
+        })
+    }
+
+    onOpenWindow = (id) => {
+        this.setState({
+            modalVisible: !this.state.modalVisible
+        })
+
+        this.getdata.getPostById(id)
+        .then(singleData => {
+            this.modalData(singleData)
+        })
+        .catch(this.onError)
+    };
+
+    onCloseWindow = () => {
+        this.setState({
+            modalVisible: !this.state.modalVisible,
+            modal: []
+        })
+    }
+
+    
+
+    getAllData() {
+        this.getdata.getAllPosts()
+        .then(alldata => {
+            this.setState({
+                data: alldata.data,
+                loader: false
+            })
+        })
+        .catch(this.onError)
+    }
+
     render() {
 
-        const{data, searchValue, filter} = this.state;
+        const{data, searchValue, filter, modalVisible, modal, loader, errormsg} = this.state;
         
         const searchPost = this.filterPost(this.searchPost(data, searchValue), filter);
         const likes = data.filter(item => item.like).length;
         const allItems = searchPost.length;
-        
+
+        const spinner = loader ? <Loader/> : null;
+        const error = errormsg ? <ErrorMessage/> : null;
+        const content = !(errormsg | loader) ? <PostList 
+                                                    posts={searchPost}
+                                                    onDelete={this.onDelete}
+                                                    onToggleImportant={this.onToggleImportant}
+                                                    onToggleLike={this.onToggleLike}
+                                                    onOpenWindow={this.onOpenWindow}
+                                                /> : null
+    
 
         return (
         <div className="container blockPanel">
+            
             <AppHeader 
             allPosts={allItems}
             likes={likes}
@@ -151,14 +216,16 @@ export default class App extends Component {
                 />
                 
             </div>
-            <PostList 
-            posts={searchPost}
-            onDelete={this.onDelete}
-            onToggleImportant={this.onToggleImportant}
-            onToggleLike={this.onToggleLike}
-            />
+            {spinner}
+            {error}
+            {content}
             <PostAddForm
-            addItem={this.addItem}
+                addItem={this.addItem}
+            />
+            <ModalWindow
+                modalVisible={modalVisible}
+                onCloseWindow = {this.onCloseWindow}
+                modalContent={modal}
             />
         </div>
         )

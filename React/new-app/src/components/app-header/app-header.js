@@ -18,9 +18,9 @@ const AppDiv = styled.div`
                     
                     `;
 
-const AppDiv2 = styled(AppDiv)`
-                background-color: yellow;
-                `;
+// const AppDiv2 = styled(AppDiv)`
+//                 background-color: yellow;
+//                 `;
 
 
 
@@ -28,7 +28,7 @@ const AppHeader = ({allPosts, likes}) => {
     return (
         // <div className="app-header d-flex">
         <AppDiv>
-            <AppDiv2 as="a" href="#">AppDiv2</AppDiv2>
+            {/* <AppDiv2 as="a" href="#">AppDiv2</AppDiv2> */}
             <h3>Alina Akylbekova</h3>
             <h6>{allPosts} note(s), {likes} like(s)</h6>
         </AppDiv>
