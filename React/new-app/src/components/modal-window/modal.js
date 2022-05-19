@@ -5,11 +5,11 @@ import Loader from "../loader";
 export default class ModalWindow extends Component {
 
     render() {
-        const {modalVisible, onCloseWindow, modalContent, modalContent: {first_name, last_name, email, avatar}} = this.props;
+        const {modalVisible, onCloseWindow, modalContent, modalContent: {first_name, last_name, email, avatar, info}} = this.props;
         let content, body;
         
         if(modalContent.length !== 0) {
-            body = <Content first_name={first_name} last_name={last_name} email={email} avatar={avatar} onCloseWindow={onCloseWindow}></Content>
+            body = <Content first_name={first_name} last_name={last_name} email={email} avatar={avatar} onCloseWindow={onCloseWindow} info={info}></Content>
         } else {
             body = <Loader/>
         }
@@ -33,7 +33,7 @@ export default class ModalWindow extends Component {
 
     
 }
-const Content = ({first_name, last_name, email, avatar, onCloseWindow}) => {
+const Content = ({first_name, last_name, email, avatar, onCloseWindow, info}) => {
     return (<>
                 <div className="modal-header">
                     <h3 className="modal-title">{first_name} {last_name}</h3>
@@ -43,6 +43,7 @@ const Content = ({first_name, last_name, email, avatar, onCloseWindow}) => {
                         <img src={avatar} alt={first_name} width="180px" height="180px"></img>
                         <span>{first_name} {last_name}</span>
                         <span><a href={"mailto:" + email}>{email}</a></span>
+                        <p>{info}</p>
                     </div>
                 </div>
                 <div className="modal-footer">

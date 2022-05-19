@@ -24,7 +24,7 @@ export default class App extends Component {
             errormsg: false
         }
 
-        this.getAllData();
+        // this.getAllData(); // instead of this, we used componentDidMount()
         // Bindings
         this.onDelete = this.onDelete.bind(this);
         this.addItem = this.addItem.bind(this);
@@ -136,7 +136,7 @@ export default class App extends Component {
 
     modalData = (data) => {
         this.setState({
-            modal: data.data
+            modal: data
         })
     }
 
@@ -155,6 +155,18 @@ export default class App extends Component {
 
         this.getdata.getPostById(id)
         .then(singleData => {
+            this.modalData(singleData.data)
+        })
+        .catch(this.onError)
+    };
+
+    onOpenFullWindow = (id) => {
+        this.setState({
+            modalVisible: !this.state.modalVisible
+        })
+
+        this.getdata.getPostByIdFull(id)
+        .then(singleData => {
             this.modalData(singleData)
         })
         .catch(this.onError)
@@ -169,7 +181,7 @@ export default class App extends Component {
 
     
 
-    getAllData() {
+    componentDidMount() {
         this.getdata.getAllPosts()
         .then(alldata => {
             this.setState({
@@ -196,6 +208,7 @@ export default class App extends Component {
                                                     onToggleImportant={this.onToggleImportant}
                                                     onToggleLike={this.onToggleLike}
                                                     onOpenWindow={this.onOpenWindow}
+                                                    onOpenFullWindow={this.onOpenFullWindow}
                                                 /> : null
     
 

@@ -58,10 +58,11 @@ i.bi.bi-arrow-down-right-circle-fill {
   pointer-events: painted!important;
   width: 100%!important;
   max-width: 550px;
-  background: white;
+  background: rgb(252, 252, 252);
   position: relative;
   margin: 0 20px;
-  max-height: calc(100vh - 40px);
+  /* max-height: 100%; */
+  max-height: calc(100vh - 50px);
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -72,6 +73,13 @@ i.bi.bi-arrow-down-right-circle-fill {
   animation-name: slide-in;
   animation-duration: 0.5s;
   margin: 0 auto;
+  border-radius: 10px;
+}
+.modal-content {
+  padding: 10px;
+  background-color: rgb(252, 252, 252);
+  height: 50vh;
+  overflow-y: auto;
 }
 
 .modal-header,
@@ -83,7 +91,7 @@ i.bi.bi-arrow-down-right-circle-fill {
 }
 .right {
   text-align: right;
-  padding-right: 5px;
+  padding: 5px 12px;
 }
 
 button.btn-sm {

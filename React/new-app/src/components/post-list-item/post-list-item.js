@@ -27,7 +27,7 @@ export default class PostListItem extends Component {
 
     render() {
 
-        const {avatar, first_name, last_name, email, onOpenWindow, onDelete, onToggleImportant, onToggleLike, important, like} = this.props;
+        const {avatar, first_name, last_name, email, onOpenWindow, onOpenFullWindow, onDelete, onToggleImportant, onToggleLike, important, like} = this.props;
         // const {important, like} = this.state;
 
         let classNames = "list-group-item d-flex justify-content-between";
@@ -49,7 +49,8 @@ export default class PostListItem extends Component {
                 <div className="d-flex justify-content-center align-items-center">
                     <button className="btn-sm"><i className="bi bi-star-fill" onClick={onToggleImportant}></i></button>
                     <button className="btn-sm"><i className="bi bi-heart-fill" onClick={onToggleLike}></i></button>
-                    <button className="btn-sm"><i className="bi bi-arrow-down-right-circle-fill" onClick={onOpenWindow} data-toggle="modal"></i></button>
+                    <button className="btn-sm"><i className="bi bi-zoom-in" onClick={onOpenWindow} data-toggle="modal"></i></button>
+                    <button className="btn-sm"><i className="bi bi-info-circle" onClick={onOpenFullWindow} data-toggle="modal"></i></button>
                     <button className="btn-sm"><i className="bi bi-trash" onClick={onDelete}></i></button>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import PostListItem from "../post-list-item";
 
-const PostList = ({posts, onOpenWindow, onDelete, onToggleImportant, onToggleLike}) => {
+const PostList = ({posts, onOpenWindow, onOpenFullWindow, onDelete, onToggleImportant, onToggleLike}) => {
 
     const elements = posts.map((item) => {
 
@@ -14,6 +14,7 @@ const PostList = ({posts, onOpenWindow, onDelete, onToggleImportant, onToggleLik
                     onToggleImportant={() => onToggleImportant(id)}
                     onToggleLike={() => onToggleLike(id)}
                     onOpenWindow={() => onOpenWindow(id)}
+                    onOpenFullWindow={() => onOpenFullWindow(id)}
                 />
             </div>
         )
