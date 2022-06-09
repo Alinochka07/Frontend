@@ -15,7 +15,6 @@ export default class App extends Component {
         super(props);
         this.state = {
             data: [],
-
             searchValue: "",
             filter: "",
             modalVisible: false,
@@ -33,7 +32,6 @@ export default class App extends Component {
         this.onUpdateSearchPanel = this.onUpdateSearchPanel.bind(this);
         this.onUpdateFilter = this.onUpdateFilter.bind(this);
 
-        // this.id = 5;
     }
 
     onDelete(id) {

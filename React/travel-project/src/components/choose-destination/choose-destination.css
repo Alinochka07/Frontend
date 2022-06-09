@@ -1,0 +1,55 @@
+
+.destination_option {
+    width: 1000px;
+    display: inline-block;
+    margin-top: -43px;
+    background: white;
+    box-shadow: 2px 2px 20px #b3abab;
+    z-index: 8;
+}
+
+table.table {
+    border: 1px solid white;
+    width: 980px;
+    margin: 10px;
+}
+.table > thead {
+    vertical-align: bottom;
+    text-align: center;
+    color: #ff5100;
+}
+
+.thead {
+    background: white;
+}
+
+button.btn.btn-light.dates, .btn.btn-light, .btn-light {
+    box-shadow: none;
+    background: transparent;
+    border: none;
+}
+button.btn.btn-light.dates:hover {
+    color: #ff5100;
+}
+
+p#close-calendar {
+    font-size: 16px;
+    font-weight: lighter;
+    text-align: right;
+    cursor: pointer;
+    padding-right: 3px;
+}
+
+div#calendar-window {
+    box-shadow: 1px 0px 20px #c1b9b9;
+    border-radius: 5px;
+}
+
+label.input-group-text {
+    background: #ff5100;
+    color: white;
+    cursor: pointer;
+}
+th#table-calendar {
+    width: 380px;
+}
