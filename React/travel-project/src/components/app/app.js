@@ -5,16 +5,25 @@ import MainHeader from "../main-header";
 import ChooseDestinationOption from "../choose-destination";
 import BoxMenu from "../middle-box-menu";
 import TopDestinations from "../top-destinations";
-import PopularTours from "../popular-tours-block";
+import ServiceBlock from "../services-block";
+import PopularDestinations from "../popular-destinations";
+import FooterInstaBlock from "../footer-insta";
+import Footer from "../footer/footer";
+
 
 
 export default class App extends Component {
     constructor(props) {
-        super(props)
-       
+        super(props);
+        this.state = {
+            data: [],
+            tours: []
+        }
+
     }
 
     render() {
+
         return(
             <div>
                 <div className="header">
@@ -25,7 +34,10 @@ export default class App extends Component {
                     <ChooseDestinationOption/>
                     <BoxMenu/>
                     <TopDestinations/>
-                    <PopularTours/>
+                    <ServiceBlock/>
+                    <PopularDestinations/>
+                    <FooterInstaBlock/>
+                    <Footer/>
                 </div>
                 
             </div>

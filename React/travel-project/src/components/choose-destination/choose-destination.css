@@ -8,6 +8,7 @@
     z-index: 8;
 }
 
+
 table.table {
     border: 1px solid white;
     width: 980px;
@@ -26,7 +27,15 @@ table.table {
 button.btn.btn-light.dates, .btn.btn-light, .btn-light {
     box-shadow: none;
     background: transparent;
-    border: none;
+    border: 1px solid #ced4d9;
+    border-radius: 4px;
+    width: 164px;
+    height: 38px;
+    color: #495157;
+    text-align: center;
+    line-height: 2.3;
+    margin-top: 1px;
+
 }
 button.btn.btn-light.dates:hover {
     color: #ff5100;
@@ -37,7 +46,8 @@ p#close-calendar {
     font-weight: lighter;
     text-align: right;
     cursor: pointer;
-    padding-right: 3px;
+    padding-right: 8px;
+    padding-bottom: 4px;
 }
 
 div#calendar-window {
@@ -45,10 +55,14 @@ div#calendar-window {
     border-radius: 5px;
 }
 
-label.input-group-text {
+.btn.tours-search {
     background: #ff5100;
     color: white;
     cursor: pointer;
+}
+.btn.tours-search:hover {
+    color: white;
+    background: #d14403;
 }
 th#table-calendar {
     width: 380px;

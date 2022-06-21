@@ -1,6 +1,7 @@
 .top-destinations {
     display: inline-flex;
     margin: 12px 15px 100px 15px;
+    width: 1000px;
     padding-top: 35px;
     cursor: pointer;
     box-shadow: 1px 1px 20px #cccbcb;

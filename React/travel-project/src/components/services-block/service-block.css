@@ -1,7 +1,7 @@
 .popular-tours {
     display: inline-flex;
     margin-left: 0;
-    width: 850px;
+    width: 1000px;
     height: 381px;
     flex-wrap: wrap;
     background-image: url('../../img/web-photos/blue-clouds.png');
@@ -10,7 +10,7 @@
     width: 351px;
 }
 .service-info {
-    width: 416px;
+    width: 528px;
     margin-top: 20px;
 }
 .service-info ul li {
@@ -55,4 +55,8 @@ button.btn.btn-light.headphones {
     padding-left: 32px;
     padding-bottom: 10px;
     font-size: 22px;
+}
+
+button.btn.btn-light.globe, button.btn.btn-light.emoji, button.btn.btn-light.headphones {
+    line-height: 1;
 }

@@ -31,11 +31,11 @@ export default function Header() {
                                 </span>
                                 <span>
                                     <div className="dropdown">
-                                    <button type="button" className="languagebtn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="bi bi-globe"></span></button>
+                                    <button type="button" className="languagebtn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span className="bi bi-globe"></span></button>
                                         <div className="dropdown-menu lng" aria-labelledby="dropdownMenuButton">
-                                            <a className="dropdown-item" href="#"><img src={kgs_flag} width="20px" height="auto"/>  Кыргызча</a>
-                                            <a className="dropdown-item" href="#"><img src={ru_flag} width="20px" height="auto"/>  Русский</a>
-                                            <a className="dropdown-item" href="#"><img src={us_flag} width="20px" height="auto"/>  English</a>
+                                            <a className="dropdown-item" href="#"><img alt="kgs_flag" src={kgs_flag} width="20px" height="auto"/>  Кыргызча</a>
+                                            <a className="dropdown-item" href="#"><img alt="ru_flag" src={ru_flag} width="20px" height="auto"/>  Русский</a>
+                                            <a className="dropdown-item" href="#"><img alt="us_flag" src={us_flag} width="20px" height="auto"/>  English</a>
                                         </div>
                                     </div>
                                     

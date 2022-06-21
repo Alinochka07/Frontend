@@ -13,22 +13,22 @@ export default class BoxMenu extends Component {
         return(
             <div className="box-menu">
                 <div className="box">
-                    <img src={map_icon} width="80px" height="80px"></img>
+                    <img alt="map_icon" src={map_icon} width="80px" height="80px"></img>
                     <h5>Выбери направление</h5>
                     <p>Lorem ipsum dolor some short text here... </p>
                 </div>
                 <div className="box">
-                    <img src={binocular} width="80px" height="80px"></img>
+                    <img alt="binocular" src={binocular} width="80px" height="80px"></img>
                     <h5>Открывай новые места</h5>
                     <p>Lorem ipsum dolor some short text here... </p>
                 </div>
                 <div className="box">
-                    <img src={suitcase} width="80px" height="80px"></img>
+                    <img alt="suitcase" src={suitcase} width="80px" height="80px"></img>
                     <h5>Путешествуй с нами</h5>
                     <p>Lorem ipsum dolor some short text here... </p>
                 </div>
                 <div className="box">
-                    <img src={relax_icon} width="80px" height="80px"></img>
+                    <img alt="relax_icon" src={relax_icon} width="80px" height="80px"></img>
                     <h5>Получай удовольствие</h5>
                     <p>Lorem ipsum dolor some short text here... </p>
                 </div>
