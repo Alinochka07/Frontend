@@ -1,0 +1,35 @@
+div#root {
+  background: white;
+}
+.right {
+  float: right;
+}
+
+.all {
+  background: #f8f6f6;
+  font-family: 'Helvetica Neue';
+}
+
+.btn.btn-link {
+  box-shadow: none;
+}
+
+.btn-check:focus+.btn, .btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.container {
+  width: 1200px;
+}
+p {
+  font-size: 13px;
+  color: gray;
+}
+
+h5 {
+  font-size: 16px;
+}
+h5, .h5 {
+  font-size: 16px;
+}
