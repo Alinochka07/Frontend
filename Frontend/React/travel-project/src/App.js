@@ -13,6 +13,9 @@ import Profile from "./pages/account/profilePage";
 import PrivateRoute from "./pages/account/PrivateRoute";
 import Navbar from "./components/navbar/navbar";
 import Test from "./pages/testpage";
+import ToursApp from "./pages/tours-page/tours";
+import TourDetails from "./pages/tours-page/tour-details";
+import Tours from "./pages/tours-page/tours";
 
 
 export default function App() {
@@ -25,7 +28,6 @@ export default function App() {
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
           setCurrentUser(user);
-        //   const uid = user.uid;
         })
       }, []);
 
@@ -61,6 +63,8 @@ export default function App() {
                             !currentUser ? <SignUp/> : <Navigate to='/'/>
                         } />
                         <Route path='/verify-email' element={<VerifyEmail/>} /> 
+                        {/* <Route path='/tours' element={<Tours/>} /> */}
+                        <Route path='/tours/:id' element={<TourDetails/>} />
                         <Route path='/test' element={<Test/>} />
                     </Routes>
                 </AuthProvider>

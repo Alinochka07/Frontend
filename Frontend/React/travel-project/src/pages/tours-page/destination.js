@@ -1,64 +1,39 @@
-import React, { useEffect, useState, createContext, useContext } from "react";
-import { db } from "../../index";
-import "./choose-destination.css";
+import React from "react";
+import "../../components/choose-destination/choose-destination.css";
 import { useNavigate } from "react-router-dom";
-import DateChoose from "./date-picker";
+import TourDetails from "./tour-details";
+import Select from "react-select";
+import Tours from "./tours";
 
 
-export const SelectedContext = createContext();
-export const useSelectContext = () => useContext(SelectedContext)
+const Destination = ({tours, tour}) => {
 
+    const navigate = useNavigate();
 
-const ChooseDestination = ({children}) => {
-    const [tours, setTours] = useState();
-    const [selected, setSelected] = useState();
     
-    const navigate = useNavigate()
+    const Selection = () => {
+        const mySelection = `${(e) => e.target.value}`
 
-   
-    // const SelectedContext = createContext({
-    //     selected: selected,
-    //     setSelected: () => {}
-    // });
+        return (
+        <div>
+            <select className="form-select">
+            <option>Выбери направление</option>
+            {tours && tours.map((tour) => 
+                <option value={mySelection} tour={tour} key={tour.id}>{tour.title}</option>
+            )}
+            </select>
+        </div>
 
-    useEffect(() => {
-        return db.collection('Tours')
-        .onSnapshot((snapshot) => {
-        const tourData = [];
-        snapshot.forEach((doc) => tourData.push({ ...doc.data(), id: doc.id }));
-        setTours(tourData);
-        console.log(tourData);
-        });
-    }, []);
-  
-    console.log(tours);
-    console.log(selected);
-
-    const handleValueChange = (e) => {
-        setSelected(e.target.value)
-    } 
-
-    const Select = () => {
-        return(
-            <div>
-                <select className="select_option" value={selected} onChange={handleValueChange}> 
-                    <option>Выбрать направление</option>
-                    {tours ? (
-                        tours.map((tour) => <option key={tour.id} value={tour.id}>{tour.label}</option>)
-                    ) : null}
-                </select>
-            </div>
         )
     }
+    
 
     const onSelect = () => {
-        navigate(`/tours-page/`)
+        navigate(`/tours/${tour.id}`)
     } 
 
-    return(
-        
-        <SelectedContext.Provider value={{ selected, setSelected }}>
-            <div className="choose-destination">
+    return (
+        <div className="choose-destination">
                 <table className="table">
                         <thead className="thead">
                             <tr>
@@ -71,7 +46,13 @@ const ChooseDestination = ({children}) => {
                             <tr>
                                 <th>
                                     <div className="static">
-                                        <Select/>
+                                    {/* <select className="form-select">
+                                        <option>Выбери направление</option>
+                                        {tours && tours.map((tour) => 
+                                            <option value={(e) => e.target.value} tour={tour} key={tour.id}>{tour.title}</option>
+                                        )}
+                                    </select> */}
+                                    <Selection/>
                                     </div>
                                     
                                 </th>
@@ -94,13 +75,8 @@ const ChooseDestination = ({children}) => {
                             </tr>
                         </tbody>
                 </table>
-                {children}
             </div>
-        </SelectedContext.Provider>
-       
     )
 }
 
-
-export default ChooseDestination;
-
+export default Destination;

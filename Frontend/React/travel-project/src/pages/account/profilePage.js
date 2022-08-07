@@ -13,8 +13,7 @@ export default function Profile() {
 
     return (
         <div>
-            <div>
-                <div className="container">
+            <div className="container">
                     <MainHeader/>
                     <ChooseDestinationOption/>
                     <BoxMenu/>
@@ -24,7 +23,6 @@ export default function Profile() {
                     <FooterInstaBlock/>
                     <Footer/>
                 </div>
-            </div>
             <div>
                 {/* <h3>{`Привет, ${currentUser.displayName}`}</h3>
 

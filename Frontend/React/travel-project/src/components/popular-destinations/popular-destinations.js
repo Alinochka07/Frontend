@@ -3,7 +3,7 @@ import "./popular-destinations.css";
 import batumi from "../../img/web-photos/batumi.jpeg";
 import istanbul from "../../img/web-photos/istanbul.jpeg";
 import abu_dabi from "../../img/web-photos/abu-dabi.jpeg";
-import FetchTours from "../fetch-data/fetch-data";
+import FetchTours from "../../fetch-data/fetch-data";
 import { id } from "date-fns/locale";
 
 

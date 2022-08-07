@@ -1,5 +1,5 @@
 
-.destination_option {
+.choose-destination {
     width: 1000px;
     display: inline-block;
     margin-top: -43px;
@@ -72,4 +72,25 @@ th#table-calendar {
     position: relative;
     box-sizing: border-box;
     width: 380px;
+}
+
+select.select_option {
+    width: 333px;
+    height: 39px;
+    border: 1px solid #ced4d8;
+    border-radius: 4px;
+    color: #4a5157;
+    text-align: center;
+}
+.display_result {
+    margin-top: 30px;
+}
+
+button.searchfortour {
+    width: 200px;
+    height: 38px;
+    border: none;
+    border-radius: 4px;
+    background: #ff5100;
+    color: white;
 }

@@ -1,5 +1,9 @@
 .container {
-  width: 1200px;
-  text-align: center;
-  position: unset;
+    width: 1200px;
+    text-align: center;
+    position: unset;
+}
+
+.tours-page {
+    padding-top: 110px;
 }

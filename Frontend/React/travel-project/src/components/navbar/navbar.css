@@ -15,6 +15,10 @@ nav.topnav {
     align-items: stretch;
     padding: 10px 0;
     box-shadow: -1px 2px 20px #aea9a9;
+    position: fixed;
+    background: white;
+    width: 100%;
+    z-index: 9;
 }
 
 
