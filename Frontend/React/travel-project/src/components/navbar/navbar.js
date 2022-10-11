@@ -10,7 +10,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 
-const Navbar = (props) => {
+const Navbar = ({tours}) => {
 
     const [width, setWidth] = useState('0%');
 
@@ -38,7 +38,7 @@ const Navbar = (props) => {
                             </div>
                             <div className="right-side-menu">
                                 <span>
-                                    <SearchFunction/>
+                                    <SearchFunction tours={tours}/>
                                 </span>
                                 <span>
                                     <button onClick={openSidenav} type="button" data-toggle="sidenav"

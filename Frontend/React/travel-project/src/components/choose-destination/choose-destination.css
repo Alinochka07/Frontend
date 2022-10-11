@@ -1,6 +1,6 @@
 
 .choose-destination {
-    width: 1000px;
+    width: 60%;
     display: inline-block;
     margin-top: -43px;
     background: white;
@@ -11,7 +11,7 @@
 
 table.table {
     border: 1px solid white;
-    width: 980px;
+    width: 97%;
     margin: 10px;
 }
 .table > thead {
@@ -93,4 +93,7 @@ button.searchfortour {
     border-radius: 4px;
     background: #ff5100;
     color: white;
+}
+th#button-th {
+    width: 29%;
 }

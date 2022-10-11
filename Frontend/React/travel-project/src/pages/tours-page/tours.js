@@ -1,26 +1,21 @@
-import React from "react";
-import "../../App.css";
-import Destination from "./destination";
-import TourDetails from "./tour-details";
+// import React from 'react';
+// import TourDetails from './tour-details';
+// import { Link } from 'react-router-dom';
+// import Allpopulardestinations from './allpopulardestinations';
 
 
-const Tours = ({tours}) => {
-    console.log(tours)
-    
-    return (
-        <div className="tours-page container">
-            <h3>Туры по направлению</h3>
-                {tours && tours.map(tour => {
-                    return (
-                        <div>
-                            <TourDetails tour={tour} key={tour.id}/>
-                            {/* <Destination tour={tour} tours={tours}/> */}
-                        </div>
 
-                    )
-                })}
-        </div>
-    )
-}
 
-export default Tours;
+// export default function Tours({tours}) {
+//   return (
+//     <div>
+//       {tours && tours.map(tour => {
+//         return (
+//             <Link to={`/tour/${tour.id}`}>
+//                 <Allpopulardestinations tour={tour} key={tour.id}/>
+//             </Link>
+//         )
+//       })}
+//     </div>
+//   )
+// }

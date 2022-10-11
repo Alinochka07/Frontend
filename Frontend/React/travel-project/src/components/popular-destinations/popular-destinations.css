@@ -17,12 +17,14 @@
     height: 350px;
 }
 
-.pop-block-1 {
+.pop-block {
     margin-top: 118px;
     margin: 10px;
+    box-shadow: 1px 1px 20px #cccbcb;
+    
 }
 
-.pop-block-2 {
+/* .pop-block-2 {
     margin-top: 10px;
     margin: 10px;
     box-shadow: 1px 1px 20px #cccbcb;
@@ -30,9 +32,9 @@
 .pop-block-3 {
     margin-top: 118px;
     margin: 10px;
-    /* box-shadow: 1px 1px 20px #cccbcb; */
-}
-div#triangle-left {
+} */
+
+/* div#triangle-left {
     border: 40px solid transparent;
     border-right: 40px solid #ff9f006b;
     border-bottom: 40px solid #ff9f006b;
@@ -52,19 +54,19 @@ div#triangle-right {
     margin-top: 0px;
     margin-right: 210px;
     margin-bottom: 17px;
-}
+} */
 
-div#first-block, div#second-block, div#third-block {
+div.info-block {
     position: absolute;
     margin-top: -37px;
     background: white;
     z-index: 3;
     width: 255px;
-    height: 73px;
+    height: 100px;
     margin-left: 18px;
     box-shadow: 1px 1px 20px #cccbcb;
 }
-#first-block h6, #second-block h6, #third-block h6 {
+.info-block h6 {
     padding: 9px 0 2px 0;
     margin-bottom: 0;
 }
@@ -97,5 +99,5 @@ button.btn.btn-outline.all-popular-destinations {
     height: 33px;
     color: white;
     padding: 0 12px;
-    margin-top: 138px;
+    margin-top: 105px;
 }

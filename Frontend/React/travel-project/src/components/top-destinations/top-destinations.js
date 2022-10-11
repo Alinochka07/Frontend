@@ -3,13 +3,26 @@ import "./top-destinations.css";
 import istanbul from "../../img/web-photos/istanbul-blue-mosque.jpeg";
 import egypt from "../../img/web-photos/Egypt.jpeg";
 import dubai from "../../img/web-photos/Dubai.jpeg";
+import { useParams } from "react-router-dom";
+import { compose } from "redux";
+import { connect } from "react-redux";
+import { firestoreConnect } from "react-redux-firebase";
+import {db} from "../../index"
+import {doc, getDoc, collection, onSnapshot} from "firebase/firestore"
 
 
-export default class TopDestinations extends Component {
+function TopDestinations(props) {
+    const {id} = useParams()
+    const {tours} = props;
+    // console.log(tours)
+    
+    // const snapshot = db.collection('tours').doc(id).get();
+    // const data = snapshot.data();
+    // console.log(data)
+    
 
-
-
-    render() {
+    if (tours) {
+   
         return(
             <div className="top-destinations">
                 <div className="top-box nth" id="nth">
@@ -32,4 +45,21 @@ export default class TopDestinations extends Component {
             </div>
         )
     }
+
+    else {
+        return (
+            <div className="container center text-warning">
+                <p>Подождите пожалуйста, загружается...</p>
+            </div>
+        )
+    }
+        
 }
+
+const mapStateToProps = (state) => {
+    return {
+        tours: state.firestore.data.tours
+    }
+    }
+    
+    export default compose(connect(mapStateToProps), firestoreConnect())(TopDestinations);

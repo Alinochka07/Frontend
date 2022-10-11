@@ -12,10 +12,13 @@ import VerifyEmail from "./pages/account/verifyEmail";
 import Profile from "./pages/account/profilePage";
 import PrivateRoute from "./pages/account/PrivateRoute";
 import Navbar from "./components/navbar/navbar";
-import Test from "./pages/testpage";
+
 import ToursApp from "./pages/tours-page/tours";
 import TourDetails from "./pages/tours-page/tour-details";
 import Tours from "./pages/tours-page/tours";
+import AdminCreateTour from "./pages/adminCreateTour";
+import AllPopularDestinations from "./pages/tours-page/allpopulardestinations";
+import SearchPage from "./pages/searchPage";
 
 
 export default function App() {
@@ -64,8 +67,11 @@ export default function App() {
                         } />
                         <Route path='/verify-email' element={<VerifyEmail/>} /> 
                         {/* <Route path='/tours' element={<Tours/>} /> */}
-                        <Route path='/tours/:id' element={<TourDetails/>} />
-                        <Route path='/test' element={<Test/>} />
+                        <Route path='/tour/:id' element={<TourDetails/>} />
+                        <Route exact path='/admin/create' element={<AdminCreateTour/>}/>
+                        <Route path='/all-popular-destinations' element={<AllPopularDestinations/>}/>
+                        <Route path='/results' element={<SearchPage/>}/>
+                        
                     </Routes>
                 </AuthProvider>
             // </Router>

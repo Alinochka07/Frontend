@@ -1,4 +1,4 @@
-import PopularDestinations from "./popular-destinations";
+import PopularDestinations from "../../pages/tours-page/popular-destinations";
 
 
 export default PopularDestinations;

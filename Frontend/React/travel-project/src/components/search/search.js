@@ -1,41 +1,77 @@
-import React, { Component} from "react";
+import React, { useState, useEffect, Component } from "react";
 // import { TouchableOpacity, View, Image } from 'react-native-web';
 import "./search.css";
- 
+import { useParams } from "react-router-dom";
+import { compose } from "redux";
+import { connect } from "react-redux";
+import { firestoreConnect } from "react-redux-firebase";
+import { Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import axios from "axios";
+import ReactSearchBox from "react-search-box";
+import PropTypes from 'prop-types';
 
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+const SearchFunction = (props) => {
 
+    const {id} = useParams()
+  
+  // const id = props.match.params.id
+  	const {tours} = props;
 
-export default class SearchFunction extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            hidden: false
-       }
-       this.onOpenInput = this.onOpenInput.bind(this)
-    }
+    const [searchValue, setSearchValue] = useState()
+    const [filteredTours, setFilteredTours] = useState()
+
+    useEffect(() => {
+        const someFunction = (tours) => {
+            setFilteredTours(tours.data.includes(searchValue))
+        }
+    }, [])
+
     
-    onOpenInput() {
-        this.setState({
-            hidden: !this.state.hidden
-        })
         
-  }
-    
-
-
-    render() {
+        // const {title, details, price, visa, dates, onbase, onbase2, destination, image, image2, image3, createdAt} = tours[id];
+        // console.log(tours)
+        // console.log(search)
         return (
             <div className="input-group mb-3">
                 <form>
                     <span>
-                        <input type="search" hidden={ !this.state.hidden ?  true : false } className="input_search" placeholder="Поиск..."/>
-                        <button type="button" className="searchbtn"><span className="bi bi-search" onClick={this.onOpenInput}></span></button>
+                        <input type="search" 
+                        onChange={e => setSearchValue(e.target.value)}
+                        className="input_search" placeholder="Поиск..."/>
+                        
+                        {/* <Link to='/results?keyword=value'> */}
+                        <button type="button" className="searchbtn"><span className="bi bi-search" ></span></button>
+                        {/* </Link> */}
+                        <div>
+                            {filteredTours}
+                            {/* {tours && tours.data.map(tour => {
+                                <div key={tour.id}>{tour.title}</div>
+                            })} */}
+                            {/* {tours && tours.filter(tour => tour.includes(search).map(filteredTour => {
+                                return <div key={filteredTour.id}>{filteredTour.title}</div>
+                            }))} */}
+                        </div>
                     </span>
                 </form>
+       
             </div>
-        )
-    }
-
+    )
+    
+    
 }
+  
+
+
+const mapStateToProps = (state) => {
+    return {
+        tours: state.firestore.data.tours
+    }
+}
+    
+export default compose(connect(mapStateToProps), firestoreConnect())(SearchFunction);
+
+
+
+

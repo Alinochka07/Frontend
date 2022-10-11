@@ -8,9 +8,15 @@ import PopularDestinations from "../components/popular-destinations";
 import FooterInstaBlock from "../components/footer-insta";
 import Footer from "../components/footer/footer";
 import ChooseDestination from "../components/choose-destination/choose-destination";
+import { compose } from "redux";
 import { connect } from "react-redux";
+import { firestoreConnect } from "react-redux-firebase";
 import Tours from "./tours-page/tours";
 import Destination from "./tours-page/destination";
+import TourList from "./tours-page/tourslist";
+
+
+
 
 
 class HomePage extends Component {
@@ -23,12 +29,13 @@ class HomePage extends Component {
                 <div className="container">
                     <MainHeader/>
                     {/* <ChooseDestination/> */}
+                    {/* <TourList tours={tours}/> */}
                     <Destination tours={tours}/>
-                    <Tours tours={tours}/>
+                    {/* <Tours tours={tours}/> */}
                     <BoxMenu/>
-                    <TopDestinations/>
+                    <TopDestinations tours={tours}/>
                     <ServiceBlock/>
-                    <PopularDestinations/>
+                    <PopularDestinations tours={tours}/>
                     <FooterInstaBlock/>
                     <Footer/>
                 </div>
@@ -38,9 +45,17 @@ class HomePage extends Component {
 }
 
 const mapStateToProps = (state) => {
+    // console.log(state);
     return {
-        tours: state.tour.tours
+        tours: state.firestore.ordered.tours
+        // tours: state.tour.tours // this is used for not Firebase connection
     }
 }
 
-export default connect(mapStateToProps)(HomePage);
+
+export default compose(
+    firestoreConnect(['tours']),
+    connect((mapStateToProps))
+    )(HomePage);
+
+

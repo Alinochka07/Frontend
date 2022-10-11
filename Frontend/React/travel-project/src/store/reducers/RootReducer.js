@@ -1,10 +1,15 @@
 import authReducer from "./AuthReducer";
 import tourReducer from "./TourReducer";
 import { combineReducers } from "redux";
+import {firestoreReducer} from "redux-firestore";
 
-const roootReducer = combineReducers({
-    auth: authReducer,
-    tour: tourReducer
+
+const rootReducer = combineReducers({
+    auth: authReducer, 
+    tour: tourReducer,
+    firestore: firestoreReducer
+    
+    
 })
 
-export default roootReducer;
+export default rootReducer;

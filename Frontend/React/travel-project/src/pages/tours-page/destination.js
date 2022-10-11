@@ -1,44 +1,36 @@
-import React from "react";
+import React, {useState} from "react";
 import "../../components/choose-destination/choose-destination.css";
 import { useNavigate } from "react-router-dom";
 import TourDetails from "./tour-details";
 import Select from "react-select";
 import Tours from "./tours";
+import TourList from "./tourslist";
 
 
-const Destination = ({tours, tour}) => {
+
+const Destination = ({tours}) => {
+
+    const [selectedValue, setSelectedValue] = useState()
 
     const navigate = useNavigate();
 
-    
-    const Selection = () => {
-        const mySelection = `${(e) => e.target.value}`
 
-        return (
-        <div>
-            <select className="form-select">
-            <option>Выбери направление</option>
-            {tours && tours.map((tour) => 
-                <option value={mySelection} tour={tour} key={tour.id}>{tour.title}</option>
-            )}
-            </select>
-        </div>
-
-        )
+    const handleChange = (e) => {
+        setSelectedValue(e.target.value)
+        console.log(selectedValue)
     }
-    
 
     const onSelect = () => {
-        navigate(`/tours/${tour.id}`)
-    } 
+        return navigate(`/tour/${selectedValue}`)
+    }
 
     return (
         <div className="choose-destination">
                 <table className="table">
                         <thead className="thead">
                             <tr>
-                                <th scope="col">Направление</th>
-                                <th scope="col">Предполагаемые даты</th>
+                                <th scope="col">Выбери направление</th>
+                                {/* <th scope="col">Предполагаемые даты</th> */}
                                 <th scope="col"></th>
                             </tr>
                         </thead>
@@ -46,31 +38,31 @@ const Destination = ({tours, tour}) => {
                             <tr>
                                 <th>
                                     <div className="static">
-                                    {/* <select className="form-select">
-                                        <option>Выбери направление</option>
-                                        {tours && tours.map((tour) => 
-                                            <option value={(e) => e.target.value} tour={tour} key={tour.id}>{tour.title}</option>
-                                        )}
-                                    </select> */}
-                                    <Selection/>
+                                        <select className="form-select" onChange={handleChange}>
+                                            <option>Выбрать</option>
+                                            {tours && tours.map((tour) => 
+                                                <option value={tour.id} key={tour.id}>{tour.destination}</option>
+                                            )}
+                                        </select>
                                     </div>
                                     
                                 </th>
-                                <th id="table-calendar">
-                                    {/* <button className="btn btn-light dates" onClick={this.onClickButton}>Выбрать даты</button> */}
+                                {/* <th id="table-calendar">
+                                    <button className="btn btn-light dates" onClick={this.onClickButton}>Выбрать даты</button>
                                     <div id="calendar-window">
                                         <div 
-                                        // hidden={ !this.state.hidden ? true : false }
+                                        hidden={ !this.state.hidden ? true : false }
                                         >
-                                            {/* <DateChoose /> */}
-                                            {/* <p id="close-calendar" onClick={this.onClickButton}>x</p> */}
+                                            <DateChoose />
+                                            <p id="close-calendar" onClick={this.onClickButton}>x</p>
                                         </div>
                                     </div>
-                                </th>
-                                <th>
+                                </th> */}
+                                <th id="button-th">
                                     <div className="input-group mb-3">
                                         <button className="searchfortour" onClick={onSelect}>Нажми для просмотра</button>
                                     </div>
+                                    
                                 </th>
                             </tr>
                         </tbody>
